@@ -34,16 +34,6 @@ fun PengelolaHalaman(
                 }
             )
         }
-        composable(DestinasiDetail.routeWithArg) { backStackEntry ->
-            // Get the NIM argument from the navController
-            val nim = backStackEntry.arguments?.getString(DestinasiDetail.NIM) ?: ""
 
-            // Display the DetailScreen and pass the NIM
-            DetailScreen(
-                nim = nim,
-                navigateBack = { navController.popBackStack() },
-                navigateToEdit = { /* Handle navigate to edit screen */ }
-            )
-        }
     }
 }

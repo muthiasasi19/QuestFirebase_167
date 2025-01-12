@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.callbackFlow
 class NetworkMahasiswaRepository (
     private val firestore: FirebaseFirestore
 ) : MahasiswaRepository {
-    override suspend fun getAllMahasiswa(): Flow<List<Mahasiswa>> = callbackFlow {
+    override suspend fun getMahasiswa(): Flow<List<Mahasiswa>> = callbackFlow {
 
         val mhsCollection = firestore.collection("Mahasiswa")
             .orderBy("nim", Query.Direction.DESCENDING)

@@ -13,3 +13,4 @@ object DestinasiInsert : DestinasiNavigasi {
     override val route: String = "insert"
     override val titleRes: String = "Insert"
 }
+

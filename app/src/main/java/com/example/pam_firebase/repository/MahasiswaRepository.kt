@@ -4,7 +4,7 @@ import com.example.pam_firebase.model.Mahasiswa
 import kotlinx.coroutines.flow.Flow
 
 interface MahasiswaRepository {
-    suspend fun getAllMahasiswa(): Flow<List<Mahasiswa>>
+    suspend fun getMahasiswa(): Flow<List<Mahasiswa>>
 
     suspend fun insertMahasiswa(mahasiswa: Mahasiswa)
 

@@ -17,27 +17,25 @@ sealed class HomeUiState {
     object Loading : HomeUiState()
 }
 
-class HomeViewModel (
-    private val mhs: MahasiswaRepository
-): ViewModel() {
-    var mhsUiState: HomeUiState by mutableStateOf(HomeUiState.Loading)
+class HomeViewModel(private val mhs: MahasiswaRepository):ViewModel(){
+    var mhsUiState : HomeUiState by mutableStateOf(HomeUiState.Loading)
         private set
 
     init {
         getMhs()
     }
 
-    fun getMhs() {
+    fun getMhs(){
         viewModelScope.launch {
-            mhs.getAllMahasiswa()
+            mhs.getMahasiswa()
                 .onStart {
                     mhsUiState = HomeUiState.Loading
                 }
-                .catch {
+                .catch{
                     mhsUiState = HomeUiState.Error(it)
                 }
                 .collect{
-                    mhsUiState = if (it.isEmpty()) {
+                    mhsUiState = if (it.isEmpty()){
                         HomeUiState.Error(Exception("Belum ada daftar mahasiswa"))
                     } else {
                         HomeUiState.Success(it)
