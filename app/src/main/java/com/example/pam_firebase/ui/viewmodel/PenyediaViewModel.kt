@@ -11,10 +11,12 @@ import com.example.pam_firebase.MahasiswaApplications
 object PenyediaViewModel {
     val Factory = viewModelFactory {
         initializer {
-            HomeViewModel(MahasiswaApplications().container.mahasiswaRepository)
+            val app = this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as MahasiswaApplications
+            HomeViewModel(app.container.mahasiswaRepository)
         }
-
-        fun CreationExtras.MahasiswaApplications(): MahasiswaApplications =
-            (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as MahasiswaApplications)
+        initializer {
+            val app = this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as MahasiswaApplications
+            InsertViewModel(app.container.mahasiswaRepository)
+        }
     }
 }
