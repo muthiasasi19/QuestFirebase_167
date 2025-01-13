@@ -1,5 +1,6 @@
 package com.example.pam_firebase.ui.viewmodel
 
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -17,30 +18,43 @@ sealed class HomeUiState {
     object Loading : HomeUiState()
 }
 
-class HomeViewModel(private val mhs: MahasiswaRepository):ViewModel(){
-    var mhsUiState : HomeUiState by mutableStateOf(HomeUiState.Loading)
+class HomeViewModel(private val mhs: MahasiswaRepository) : ViewModel() {
+    var mhsUiState: HomeUiState by mutableStateOf(HomeUiState.Loading)
         private set
 
     init {
         getMhs()
     }
 
-    fun getMhs(){
+    fun getMhs() {
         viewModelScope.launch {
             mhs.getMahasiswa()
                 .onStart {
                     mhsUiState = HomeUiState.Loading
                 }
-                .catch{
-                    mhsUiState = HomeUiState.Error(it)
+                .catch { e ->
+                    mhsUiState = HomeUiState.Error(e)
                 }
-                .collect{
-                    mhsUiState = if (it.isEmpty()){
+                .collect { mhsList ->
+                    mhsUiState = if (mhsList.isEmpty()) {
                         HomeUiState.Error(Exception("Belum ada daftar mahasiswa"))
                     } else {
-                        HomeUiState.Success(it)
+                        HomeUiState.Success(mhsList)
                     }
                 }
+        }
+    }
+
+    fun insertMahasiswa(mahasiswa: Mahasiswa) {
+        viewModelScope.launch {
+            try {
+                mhs.insertMahasiswa(mahasiswa) // Panggil fungsi insert dari repository
+                // Tampilkan notifikasi "DATA BERHASIL DITAMBAHKAN"
+            } catch (e: Exception) {
+                // Tampilkan notifikasi error
+                mhsUiState = HomeUiState.Error(e)
+                Log.e("HomeViewModel", "Error inserting data: ", e)
+            }
         }
     }
 }
