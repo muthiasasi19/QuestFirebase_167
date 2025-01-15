@@ -12,6 +12,10 @@ Halaman Insert
 ![image](https://github.com/user-attachments/assets/72ad8f1a-0591-4fda-a660-d075b6772e8d)
 
 
+Detail
+![image](https://github.com/user-attachments/assets/253ea4ed-1658-40d8-9b64-499e37bdeeb4)
 
 
 
+Firebase
+![image](https://github.com/user-attachments/assets/e490857c-800b-4f38-a462-9c364557c3f4)
