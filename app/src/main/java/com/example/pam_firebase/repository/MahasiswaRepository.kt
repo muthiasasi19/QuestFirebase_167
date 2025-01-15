@@ -6,7 +6,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.flow.Flow
 
 interface MahasiswaRepository {
-    val firestore: FirebaseFirestore // Deklarasikan properti di sini
+    val firestore: FirebaseFirestore // Deklarasikan propertinya di sini
 
     suspend fun getMahasiswa(): Flow<List<Mahasiswa>>
 
@@ -14,7 +14,7 @@ interface MahasiswaRepository {
 
     suspend fun updateMahasiswa(nim: String, mahasiswa: Mahasiswa)
 
-    suspend fun deleteMahasiswa(nim: String)
+    suspend fun deleteMahasiswa(mahasiswa: Mahasiswa)
 
     suspend fun getMahasiswaByNim(nim: String): Flow<Mahasiswa>
 }
