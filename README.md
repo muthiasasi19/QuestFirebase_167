@@ -1,17 +1,17 @@
 Halaman Home
-![image](https://github.com/user-attachments/assets/5dc2719f-0eac-4450-8a19-220b70b8006f)
+![image](https://github.com/user-attachments/assets/46e52fd5-029f-42a3-a788-4fc89d3863cd)
+
 
 Data tidak boleh kosong
 ![image](https://github.com/user-attachments/assets/28acc0a6-cee6-4a2b-b687-b184d4e50ace)
 
 
 Halaman Insert
-![image](https://github.com/user-attachments/assets/2eeaac88-8252-438e-846c-823f0491317f)
+![image](https://github.com/user-attachments/assets/403fc5b3-5aff-4257-ba03-cec4a231520f)
+
+![image](https://github.com/user-attachments/assets/72ad8f1a-0591-4fda-a660-d075b6772e8d)
 
 
-Setelah ditambah
-![Cuplikan layar 2025-01-13 095200](https://github.com/user-attachments/assets/987dc90a-0441-4881-94f4-0101d4f486f5)
 
 
-Data pada firebase
-![image](https://github.com/user-attachments/assets/698c104a-10a0-4007-812f-3d54b53c0d93)
+
